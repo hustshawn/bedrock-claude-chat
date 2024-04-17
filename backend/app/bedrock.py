@@ -134,6 +134,8 @@ def get_model_id(model: str) -> str:
         return "anthropic.claude-v2:1"
     elif model == "claude-instant-v1":
         return "anthropic.claude-instant-v1"
+    elif model == "claude-v3-opus":
+        return "anthropic.claude-3-opus-20240229-v1:0"
     elif model == "claude-v3-sonnet":
         return "anthropic.claude-3-sonnet-20240229-v1:0"
     elif model == "claude-v3-haiku":
@@ -142,8 +144,8 @@ def get_model_id(model: str) -> str:
         return "mistral.mistral-7b-instruct-v0:2"
     elif model == "mixtral-8x7b-instruct":
         return "mistral.mixtral-8x7b-instruct-v0:1"
-    elif model == "claude-v3-opus":
-        return "anthropic.claude-3-opus-20240229-v1:0"
+    elif model == "mistral-large":
+        return "mistral.mistral-large-2402-v1:0"
     else:
         raise NotImplementedError()
 
