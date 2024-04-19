@@ -162,8 +162,7 @@ def prepare_conversation(
     )
     conversation.message_map[message_id] = new_message
     logger.debug(f"parent_id in message_map: {parent_id}")
-    conversation.message_map[parent_id].children.append(
-        message_id)  # type: ignore
+    conversation.message_map[parent_id].children.append(message_id)  # type: ignore
 
     return (message_id, conversation, bot)
 
@@ -272,7 +271,7 @@ def get_bedrock_response(args: dict):
     if is_mistral_model(args['model']):
         prompt = f"<s>[INST] {prompt} [/INST]"
 
-    logger.info(f"Final Prompt: {prompt}")
+    logger.debug(f"Final Prompt: {prompt}")
     body = json.dumps({
         "prompt": prompt,
         "max_tokens": args['max_tokens'],
