@@ -340,8 +340,8 @@ def chat(user_id: str, chat_input: ChatInput) -> ChatOutput:
         response: AnthropicMessage = client.messages.create(**args)
         reply_txt = response.content[0].text
     else:
-        response: AnthropicMessage = get_bedrock_response(args)['outputs'][0]
-        reply_txt = response['text']
+        response: AnthropicMessage = get_bedrock_response(args)['outputs'][0] # type: ignore[no-redef]
+        reply_txt = response['text'] # type: ignore
 
     # Issue id for new assistant message
     assistant_msg_id = str(ULID())
@@ -462,7 +462,7 @@ def propose_conversation_title(
         response = client.messages.create(**args)
         reply_txt = response.content[0].text
     else:
-        response: AnthropicMessage = get_bedrock_response(args)['outputs'][0]
+        response: AnthropicMessage = get_bedrock_response(args)['outputs'][0] # type: ignore[no-redef]
         reply_txt = response['text']
     return reply_txt
 
